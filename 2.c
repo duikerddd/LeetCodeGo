@@ -1,37 +1,37 @@
-////2.»ñÈ¡Ò»¸öÊı¶ş½øÖÆĞòÁĞÖĞËùÓĞµÄÅ¼ÊıÎ»ºÍÆæÊıÎ»£¬
-////·Ö±ğÊä³ö¶ş½øÖÆĞòÁĞ¡£
-//#define _CRT_SECURE_NO_WARNINGS
-//#include<stdio.h>
-//#include <stdlib.h>
-//int main()
-//{
-//	int num = 0;
-//	scanf("%d", &num);
-//	char arr1[16];
-//	char arr2[16];
-//	int i = 0;
-//	int j = 0;
-//	for (i = 0; i < 32; i += 2)
-//	{
-//		arr1[j] = ((num >> i) & 1);//ÆæÊıÎ»
-//		j++;
-//	}
-//	j = 0;
-//	for (i = 1; i < 32; i += 2)
-//	{
-//		arr2[j] = ((num >> i) & 1);//Å¼ÊıÎ»
-//		j++;
-//	}
-//	for (i = 15; i >= 0; i--)
-//	{
-//		printf("%d", arr1[i]);
-//		
-//	}
-//	printf("\n");
-//	for (i = 15; i >= 0; i--)
-//	{
-//		printf("%d", arr2[i]);
-//	}
-//	system("pause");
-//	}
-//	
+////2.è·å–ä¸€ä¸ªæ•°äºŒè¿›åˆ¶åºåˆ—ä¸­æ‰€æœ‰çš„å¶æ•°ä½å’Œå¥‡æ•°ä½ï¼Œ
+////åˆ†åˆ«è¾“å‡ºäºŒè¿›åˆ¶åºåˆ—ã€‚
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int num = 0;
+	scanf("%d", &num);
+	char arr1[16];
+	char arr2[16];
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < 32; i += 2)
+	{
+		arr1[j] = ((num >> i) & 1);//å¥‡æ•°ä½
+		j++;
+	}
+	j = 0;
+	for (i = 1; i < 32; i += 2)
+	{
+		arr2[j] = ((num >> i) & 1);//å¶æ•°ä½
+		j++;
+	}
+	for (i = 15; i >= 0; i--)
+	{
+		printf("%d", arr1[i]);
+		
+	}
+	printf("\n");
+	for (i = 15; i >= 0; i--)
+	{
+		printf("%d", arr2[i]);
+	}
+	system("pause");
+	}
+	

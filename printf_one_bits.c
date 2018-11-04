@@ -1,3 +1,4 @@
+//将数的二进制每一位都打印出来
 #include<stdio.h>
 #include<stdlib.h>
 int print_one_bits01(unsigned int value){                   //0000 1111  

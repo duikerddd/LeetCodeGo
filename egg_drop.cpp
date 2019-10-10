@@ -1,35 +1,35 @@
+#include <iostream>
+#include <limits.h>
+
 //F（N，K）= Min（Max（ F（N-X，K）+ 1， F（X-1，K-1） + 1）），1<=X<=N
-//状态方程 : dp[N,k] = dp[N-1][K] + dp[N][M-1] + 1
-/*
-    假设移动x次,k个鸡蛋,最优解的最坏条件下可以检测n层楼,层数n=黑箱子函数f(x,k)
+using namespace std;
 
-    假设从n0+1层丢下鸡蛋,
-    1,鸡蛋破了gg
-        剩下x-1次机会和k-1个鸡蛋,可以检测n0层楼
-    2, 鸡蛋没破
-        剩下x-1次机会和k个鸡蛋,可以检测n1层楼
-    
-    那么 临界值层数F在[1,n0+n1+1]中的任何一个值,都都能被检测出来
+//Compares 2 values and returns the bigger one
+int max(int a,int b) {
+    int ans=(a>b)?a:b;
+    return ans;
+}
 
-归纳的状态转移方程式为:f(x,k) = f(x-1,k-1)+f(x-1,k)+1,即x次移动的函数值可以由x-1的结果推导,这个思路很抽象,需要花时间去理解,具体看代码,对照着代码理解
+//Compares 2 values and returns the smaller one
+int min(int a,int b){
+    int ans=(a<b)?a:b;
+    return ans;
+}
 
-可以简化为黑箱子函数的返回值只跟鸡蛋个数k有关系:
-本次fun(k) = 上次fun(k-1)+上次fun(k)+1
-*/
-class Solution {
-public:
-    int superEggDrop(int K, int N) {
-        
-        vector<int> dp(K + 1, 0);
-        int m = 0;
-        while (dp[K] < N) {//表示当能够测试的最大楼层数刚好是我们需要的楼层数N时，此时取得m的最小值。
-            m++;
-            for (int k = K; k > 0; --k) {
-                dp[k] = dp[k-1] + dp[k] + 1;//逆向遍历，不断更新dp[k],使得dp[k]取最大值(能够测试的最大楼层数)
-            }
-        }
-        return m;
-    
-        
-    }
-};
+int egg(int n,int h){
+
+    //Basis case
+    //一个鸡蛋,最坏情况下最少尝试h次
+    if(n==1) return h;
+    //没有楼层,不需要尝试
+    if(h==0) return 0;
+    //一层一次就够
+    if(h==1) return 1;
+
+    int minimum=INT_MAX;
+
+    //从1,2,3...层开始扔,寻找所有最坏情况里的最小值
+    for(int x=1;x<=h;x++) minimum=min(minimum,(1+max(egg(n,h-x),egg(n-1,x-1))));
+
+    return minimum;
+}

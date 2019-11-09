@@ -1,3 +1,4 @@
+
 class Solution {
 public:
     //无效输入 : 空

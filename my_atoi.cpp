@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //跳过空字符 --- 找到数字符号  --- 计算数字部分
+    //1.跳空格 --> 确定正负  --> 计算数字(要有溢出判断)
     int myAtoi(string str) {
         if(str.empty() || str.length()==0)
             return 0;

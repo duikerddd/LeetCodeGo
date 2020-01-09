@@ -1,0 +1,34 @@
+vector<int>& GetLeasetNum(vector<int>&arr,int k)
+{
+    //无效输入
+    if(arr.empty() || arr.size()==0 || k<=0 || k>arr.size())
+        return;
+        
+    int size = arr.size();
+    vector<int> ret_min(k,0);
+    int left = 0;
+    int right = size-1;
+    int mid = Partion(arr,left,right);    
+    //mid==k 说明mid左边满足k个最小数字
+    while(mid != k)
+    {
+        //在k的右边,去左边找
+        if(mid > k)
+        {
+            right = mid-1;
+            int mid = Partion(arr,left,right);    
+        }
+        //在k的左边,去 右边找
+        else
+        {
+            left = mid+1;
+            int mid = Partion(arr,left,right);   
+        }
+    }
+    for(int i=0;i<k;++i)
+    {
+        ret_min[i] = array[i];
+    }
+    
+    return ret_min;
+}

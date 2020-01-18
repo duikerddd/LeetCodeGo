@@ -21,6 +21,7 @@ int ByteMaxContinuous(int n)
     }
     if(count>max)
         max = count;
+
     return max;
 }
 

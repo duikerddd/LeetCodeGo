@@ -8,6 +8,7 @@
  */
 class Solution {
 public:
+    
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         //让指针齐头并进
         //计算链表长度

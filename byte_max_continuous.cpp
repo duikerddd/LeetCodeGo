@@ -8,6 +8,7 @@ int ByteMaxContinuous(int n)
     int max = 0;
     int count = 0;
 
+
     for(int i=n;i!=0;i=i>>1)
     {
         if((i&1)==0)

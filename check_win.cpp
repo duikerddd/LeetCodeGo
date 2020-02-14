@@ -1,5 +1,6 @@
 class Board {
 public:
+    
     //赢的条件: 横 竖 斜和为3
     bool checkWon(vector<vector<int> > board) {
         //斜

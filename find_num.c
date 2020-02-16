@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 void FindNum(int *a, int n)
 {
 	int i = 0;

@@ -3,7 +3,7 @@
 #include<stdlib.h>
 void  change(int a[], int b[],int leng)
 {	
-  int t = 0;
+        int t = 0;
 	for (int length = 0;length < leng; length++)      
 	{
 		t = a[length];

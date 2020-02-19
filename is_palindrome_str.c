@@ -26,6 +26,7 @@ void IsPalindrome(char *arr)
 	return;
 }
 
+
 int main()
 {
 	char arr[] = "aa";

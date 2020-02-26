@@ -17,6 +17,7 @@ int ave1(int a,int b)
 	}
 }
 
+
 int ave2(int x, int y)
 {
 	return (x & y) + ((x ^ y) >> 1);     //&找出相同的位 + ^不同的位 除2分给一半给没有的

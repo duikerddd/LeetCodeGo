@@ -18,7 +18,7 @@ ListNode* CopyList(ListNode* head)
     next = cur->next;
     while(cur)
     {
-        if(cur->random!=NULL)
+        if(cur->random!=NULL)ha
             next->random = cur->random->next;
         else
             next->random = NULL;
@@ -32,6 +32,7 @@ ListNode* CopyList(ListNode* head)
     cur = head;
     ListNode* new_head = cur->next; 
     new_cur = new_head;
+    
     while(cur)
     {
         cur->next = new_cur->next;

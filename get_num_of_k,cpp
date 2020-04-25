@@ -1,0 +1,68 @@
+//mid<3      后半段找
+//	mid>3      前半段找
+//	前面一个是3, 前半段找
+//	mid == 3    前面一个不是3, 则为第一个3
+int GetFirstK(int* v,int len,int k,int begin,int last)
+{
+	//终止条件
+	if (begin > last)
+		return -1;
+
+	int mid = (begin + last) / 2;
+	
+	if (v[mid] < k)
+		last = mid - 1;
+	else if (v[mid]>k)
+		begin = mid + 1;
+	else if (v[mid] == k)
+	{
+		if ((mid > 0 && v[mid - 1] != k) || mid == 0)
+			return mid;
+		else
+			last = mid - 1;
+	}
+	return GetFirstK(v, len, k, begin, last);
+
+}
+
+//mid<3      后半段找
+//	mid>3      前半段找
+//	mid == 3   后面一个不是3, 则为最后一个3
+//	后面一个是3, 后半段找
+int GetLastK(int* v, int len, int k, int begin, int last)
+{
+	//终止条件
+	if (begin > last)
+		return -1;
+
+	int mid = (begin + last) / 2;
+
+	if (v[mid] < k)
+		last = mid - 1;
+	else if (v[mid]>k)
+		begin = mid + 1;
+	else if (v[mid] == k)
+	{
+		if ((mid < len-1 && v[mid - 1] != k) || mid == len-1)
+			return mid;
+		else
+			begin = mid + 1;
+	}
+	return GetLastK(v, len, k, begin, last);
+}
+
+//统计排序数组的某个数字出现次数
+int GetNumberOfK(int* v,int len,int k)
+{
+	int count = 0;
+	//无效输入
+	if (v == NULL && len == 0) return count;
+
+	//计算位置
+	int first = GetFirstK(v,len,k,0,len-1);
+	int last = GetLastK(v,len,k,0,len-1);
+	//返回差值
+	count = last - first + 1;
+	return count;
+
+}

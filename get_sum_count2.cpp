@@ -6,7 +6,7 @@
 
 void getNSumCountNotRecusion(int n){
 	//动态规划,dp第一个参数代表第n次置骰子,第二个参数代表骰子的点数之和.整个dp就是第n次置骰子 某一个点数出现的次数.
-	//第一行没有骰子都为0. 第一列总和0全为0
+	//第一行没有骰子都为0. 第一列总和0全为0  还有每一行前面算不到也是0
 	vector<vector<int>>dp(n + 1, vector<int>(n * 6 + 1, 0));
 
 	//初始化第一行
@@ -35,3 +35,5 @@ void getNSumCountNotRecusion(int n){
 	for (int j = n; j <= n * 6; ++j)
 		cout << j << "出现次数" << dp[n][j] << endl;
 }
+
+

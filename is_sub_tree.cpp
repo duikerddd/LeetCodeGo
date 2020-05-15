@@ -16,6 +16,7 @@ public:
         }        
         return flag;
     }
+
     //判断是否相等
     bool DoesTreeHavaTree(TreeNode *s, TreeNode *t) {
         //都为空

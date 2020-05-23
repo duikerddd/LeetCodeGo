@@ -6,6 +6,7 @@ bool IsBalanceBT(BTNode* root,int* depth)
          *depth = 0;
          return true;
       }
+
      
      int left,right;
      if(IsBalanceBT(root->left,&left) && IsBalanceBT(root->left,&right))

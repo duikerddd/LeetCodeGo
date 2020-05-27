@@ -35,6 +35,7 @@ void FindContinueSequence(int sum)
 				PrintOrder(small, big);
 		}
 
+
 		//</前面数已经看完 增大
 		big++;
 		curSum += big;

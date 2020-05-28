@@ -4,7 +4,7 @@ void PrintOrder(int small,int big)
 	{
 		cout << i << " ";
 	}
-	cout << endl;
+	cout  << endl;
 }
 
 void FindContinueSequence(int sum)

@@ -14,12 +14,12 @@ void GetLeastNumofArr(const vector<int>& data,int k)
     //1.建大堆(所有非叶子节点向下调整,得到大堆)
     int n = data.size()-1;
     for(int i = (n-1)/2;i>=0;--i)
-        AdjustDown(data,n,);
+        AdjustDown(data,i,n);
     
     //2.向下调整(堆顶与最后一个节点交换,固定在数组,对新节点进行向下调整,重复直到全部固定完成)
     for(int i= n-1;i>0;--i){
         swap(data[0],data[i]);
-        AdjustDown(data,i);
+        AdjustDown(data,0,i);
         }
     
     //3.输出前k个元素
@@ -29,10 +29,10 @@ void GetLeastNumofArr(const vector<int>& data,int k)
 }
 
 //大堆-->降序 
-void AdjustDown(vector<int>& arr,int end)
+void AdjustDown(vector<int>& arr,int root,int end)
 {
-    int cur = 0;
-    int child = 2*cur+1;
+    int cur = root;
+    int child = 2*root+1;
     
     //左孩子没越界
     while(left<end)

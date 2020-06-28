@@ -26,8 +26,6 @@ void left_rotate(char *str, int k)
 	}
 }
 
-
-
 int main()
 {
 	char str[100] = "abcdefg";

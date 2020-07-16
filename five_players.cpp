@@ -6,7 +6,8 @@
 //D选手说：C最后，我第三；
 //E选手说：我第四，A第一；
 //比赛结束后，每位选手都说对了一半，请编程确定比赛的名次  
-       
+     
+
 #include<stdio.h>
 #include<stdlib.h>
 int main(){

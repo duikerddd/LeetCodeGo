@@ -1,3 +1,4 @@
+
 void DeleteNode(ListNode* head,ListNode* del)
 {
     //无效输入

@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 int main()
 {
 	int arr[] = { 1, 5, 5, 1, 7, 6, 7, 8, 8, 9, 9 };

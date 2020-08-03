@@ -4,6 +4,7 @@
 
 bool IsAnagram(string& s1,string& s2)
 {
+
     if(s1.size()!=s2.size()) return false;
     
     vector<int> hash(256,0);

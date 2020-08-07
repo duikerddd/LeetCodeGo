@@ -4,12 +4,13 @@
 #define ROW 3
 #define COL 3
 char chess_board[ROW][COL];
+
 int PlayGame(int choice){
 	printf("************************\n");
-	printf("*  »¶Ó­À´µ½Èı×ÓÆåÓÎÏ·  *\n");
-	printf("*       ÇëÄúÑ¡Ôñ       *\n");
-	printf("*      1.¿ªÊ¼ÓÎÏ·      *\n");
-	printf("*      2.Àë¿ªÓÎÏ·      *\n");
+	printf("*  æ¬¢è¿æ¥åˆ°ä¸‰å­æ£‹æ¸¸æˆ  *\n");
+	printf("*       è¯·æ‚¨é€‰æ‹©       *\n");
+	printf("*      1.å¼€å§‹æ¸¸æˆ      *\n");
+	printf("*      2.ç¦»å¼€æ¸¸æˆ      *\n");
 	printf("************************\n");
 	while (1){
 		scanf("%d", &choice);
@@ -25,7 +26,7 @@ int PlayGame(int choice){
 		}
 		else
 		{
-			printf("ÊäÈë·Ç·¨,ÇëÖØĞÂÊäÈë!");
+			printf("è¾“å…¥éæ³•,è¯·é‡æ–°è¾“å…¥!");
 			continue;
 		}
 	}
@@ -52,15 +53,15 @@ void PlayerMove(char a[ROW][COL]){
 	int row = -1;
 	int col = -1;
 	while (1){
-		printf("ÇëÄúÑ¡ÔñÂä×Óµã×ø±ê:");
+		printf("è¯·æ‚¨é€‰æ‹©è½å­ç‚¹åæ ‡:");
 		scanf("%d %d", &row, &col);
 		if (row<0 || row>2 || col<0 || col>2){
-			printf("ÊäÈë·Ç·¨,ÇëÖØĞÂÊäÈë!");
+			printf("è¾“å…¥éæ³•,è¯·é‡æ–°è¾“å…¥!");
 			continue;
 		}
 		else if (a[row][col] == 'x' || a[row][col] == 'o')
 		{
-			printf("ÒÑÓĞÆå×Ó,ÇëÖØĞÂÑ¡Ôñ×ø±ê!");
+			printf("å·²æœ‰æ£‹å­,è¯·é‡æ–°é€‰æ‹©åæ ‡!");
 			continue;
 		}
 		else
@@ -89,7 +90,7 @@ int IsFull(char a[ROW][COL]){
 	}
 }
 char Checkwinner(char a[ROW][COL]){
-	//1.ÅĞ¶ÏÈı×Ó ºá Êú Ğ±
+	//1.åˆ¤æ–­ä¸‰å­ æ¨ª ç«– æ–œ
 	for (int row = 0; row < ROW; row++){
 		if (a[row][0] == a[row][1] && a[row][0] == a[row][2] && a[row][0] != ' ')
 		{
@@ -115,7 +116,7 @@ char Checkwinner(char a[ROW][COL]){
 
 
 void ComputeMove(char a[ROW][COL]){
-	printf("ÇëµçÄÔÂä×Ó!\n");
+	printf("è¯·ç”µè„‘è½å­!\n");
 	while (1){
 		int col = rand() % 3;
 		int row = rand() % 3;
@@ -128,33 +129,33 @@ void ComputeMove(char a[ROW][COL]){
 	}
 }
 void Game(){
-	Init(chess_board);//2.ÆåÅÌ³õÊ¼»¯
-	Print(chess_board);//3.´òÓ¡ÆåÅÌ
+	Init(chess_board);//2.æ£‹ç›˜åˆå§‹åŒ–
+	Print(chess_board);//3.æ‰“å°æ£‹ç›˜
 	while (1){
 
-		PlayerMove(chess_board);//4.ÓÃ»§Âä×Ó
+		PlayerMove(chess_board);//4.ç”¨æˆ·è½å­
 		Print(chess_board);
 		if (Checkwinner(chess_board) == 'p')
 		{
-			printf("Íæ¼Ò»ñÊ¤!\n");
+			printf("ç©å®¶è·èƒœ!\n");
 			break;
 		}
-		if (IsFull(chess_board) == 1)//2.ÅĞ¶ÏÊÇ·ñºÍÆå
+		if (IsFull(chess_board) == 1)//2.åˆ¤æ–­æ˜¯å¦å’Œæ£‹
 		{
-			printf("Æ½¾Ö!");
+			printf("å¹³å±€!");
 			break;
 		}
-		ComputeMove(chess_board);//6.µçÄÔËæ»úÂä×Ó
-		Print(chess_board);//3.´òÓ¡ÆåÅÌ
+		ComputeMove(chess_board);//6.ç”µè„‘éšæœºè½å­
+		Print(chess_board);//3.æ‰“å°æ£‹ç›˜
 		if (Checkwinner(chess_board) == 'p')
 		{
-			printf("µçÄÔ»ñÊ¤!\n");
+			printf("ç”µè„‘è·èƒœ!\n");
 			break;
 		}
 
-		if (IsFull(chess_board) == 1)//2.ÅĞ¶ÏÊÇ·ñºÍÆå
+		if (IsFull(chess_board) == 1)//2.åˆ¤æ–­æ˜¯å¦å’Œæ£‹
 		{
-			printf("Æ½¾Ö!\n");
+			printf("å¹³å±€!\n");
 			break;
 		}
 	}
@@ -163,7 +164,7 @@ void Game(){
 
 int main(){
 	int choice = 0;
-	if (PlayGame(choice) == 1) {   //1.Ñ¡ÔñÊÇ·ñ¿ªÊ¼ÓÎÏ·  a)¿ªÊ¼  b)Àë¿ª
+	if (PlayGame(choice) == 1) {   //1.é€‰æ‹©æ˜¯å¦å¼€å§‹æ¸¸æˆ  a)å¼€å§‹  b)ç¦»å¼€
 		 Game();
 
 	}

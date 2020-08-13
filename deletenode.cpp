@@ -1,4 +1,3 @@
-
 void DeleteNode(ListNode* head,ListNode* del)
 {
     //无效输入
@@ -14,6 +13,7 @@ void DeleteNode(ListNode* head,ListNode* del)
         delete del_next;
         del_next = NULL;
     }   
+
     //特殊情况: 只有一个结点 
     else if(del == head)
     {

@@ -7,7 +7,6 @@
  * };
  */
 
-
 class Solution {
 public:
     

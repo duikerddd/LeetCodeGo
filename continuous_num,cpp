@@ -23,7 +23,7 @@ bool IsContinuous(vector<int> v){
         return false;
         }
         //!0 插空抵消
-        count += v[i+1]-v[i]+1;
+        count += v[i+1]-v[i]-1;
         
     }
     if(count>=0) 

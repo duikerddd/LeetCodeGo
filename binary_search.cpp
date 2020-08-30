@@ -25,6 +25,7 @@ ssize_t BinarySearchR(int array[], size_t size, int data)   //递归
 }
 
 
+
 ssize_t BinarySearch(int array[], size_t size, int data)      //常规
 {
 	//[left,right)

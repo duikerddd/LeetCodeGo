@@ -4,6 +4,7 @@
 typedef int ssize_t;
 typedef unsigned int size_t;
 
+
 ssize_t BinarySearchR(int array[], size_t size, int data)   //递归
 {
 	if (size <= 0)

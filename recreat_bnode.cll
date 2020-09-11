@@ -1,0 +1,40 @@
+/** * Definition for a binary tree node.
+ * struct TreeNode { 
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * }; 
+*/ 
+
+//解题思路: 1.前序找根 2.中序找左右边界 3.递归直到前序结束
+class Solution {
+      public:    
+      TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {  
+          return RebulidTree(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1);    
+      }   
+
+      TreeNode* RebulidTree(vector<int>& preorder,int ps,int pe,vector<int>& inorder,int is,int ie)  
+      {            
+      //终止条件            
+      if(ps>pe || is>ie) return NULL;            
+      //确定根            
+      int root_val = preorder[ps];            
+      TreeNode* root = new TreeNode(root_val);               
+      //分边界            
+      int root_inx = 0;            
+      for(int i=is;i<=ie;++i)            
+      {                
+           if(inorder[i] == root_val) 
+           //找到了根节点的位置 [is,i-1],i,[i+1,ie]                
+           {                    
+             //pre_left: [ps+1 ,ps+1+(i-is)-1]    
+             //pre_right: [ps+(i-is)+1,pe]                     
+             root->left =  RebulidTree(preorder,ps+1,ps+i-is,inorder,is,i-1);                     
+             root->right = RebulidTree(preorder,ps+i-is+1,pe,inorder,i+1,ie);                                
+             break;                
+            }            
+       }            
+       return root;                
+       }
+   };

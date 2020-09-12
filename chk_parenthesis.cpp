@@ -9,6 +9,7 @@ public:
     bool chkParenthesis(string A, int n) {
             stack<char> st;
             
+           
             for(int i=0;i<A.size();++i)
             {
                 if(A[i]=='(')

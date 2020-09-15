@@ -4,6 +4,7 @@ ListNode* FindTailK(ListNode* head,int k)
     if(head || k<1)
         return NULL;
        
+
     ListNode* fast = head;
     ListNdoe* slow = head;
     for(int i=0;i<k-1;++i)

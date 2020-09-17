@@ -4,6 +4,7 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         sort(nums.begin(),nums.end());
+        
         //排除不满足条件数组
         if(nums.size()<2)
         {

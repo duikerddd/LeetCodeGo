@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 
+
 int ave1(int a,int b)
 {
 	if (a > b)

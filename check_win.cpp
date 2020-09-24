@@ -6,6 +6,7 @@ public:
         //斜
        if(board[0][0]+board[1][1]+board[2][2]==3) return true;
        if(board[2][0]+board[1][1]+board[0][2]==3) return true;
+
        //横竖
         for(int i=0;i<3;++i)
        {

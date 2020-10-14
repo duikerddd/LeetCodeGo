@@ -8,6 +8,7 @@ vector<int> printMatrix(vector<vector<int> > matrix) {
             return result;
         int left = 0,right = col-1;  //圈的左右边界
         int top = 0,bottom = row-1;  //圈的上下边界
+        
         while(left<=right && top<=bottom)  //临界条件:圈内有数
         {
             //从左往右

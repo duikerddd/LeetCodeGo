@@ -1,5 +1,6 @@
 string cut_str;
 
+
 string& CutFirstStr( string& s1,  string& s2)
 {
 	//无效输入
